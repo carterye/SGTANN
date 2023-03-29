@@ -1,7 +1,7 @@
 from tensorflow import keras
 import tensorflow as tf
 from tensorflow.keras import Sequential, layers
-from model.model_aux import SpectralNorm, Attention, GCNConv
+from model.model_aux import Attention, GCNConv
 
 
 class SGTANN(keras.Model):
@@ -49,20 +49,17 @@ class SGTANN(keras.Model):
             remain_window = remain_window - dilation_rate * (kernel_size - 1)
             if self.use_glu:
                 self.filter_convs.append(
-                    layers.Conv2D(filters=conv_channels, kernel_size=(1, kernel_size), kernel_constraint=SpectralNorm(),
-                                  dilation_rate=dilation_rate))
+                    layers.Conv2D(filters=conv_channels, kernel_size=(1, kernel_size), dilation_rate=dilation_rate))
                 self.gate_convs.append(
-                    layers.Conv2D(filters=conv_channels, kernel_size=(1, kernel_size), kernel_constraint=SpectralNorm(),
-                                  dilation_rate=dilation_rate))
+                    layers.Conv2D(filters=conv_channels, kernel_size=(1, kernel_size), dilation_rate=dilation_rate))
             else:
                 self.filter_convs.append(
-                    layers.Conv2D(filters=conv_channels, kernel_size=(1, kernel_size), kernel_constraint=SpectralNorm(),
-                                  dilation_rate=dilation_rate))
+                    layers.Conv2D(filters=conv_channels, kernel_size=(1, kernel_size), dilation_rate=dilation_rate))
 
             self.skip_convs.append(
-                layers.Conv2D(filters=skip_channels, kernel_constraint=SpectralNorm(), kernel_size=(1, remain_window)))
+                layers.Conv2D(filters=skip_channels, kernel_size=(1, remain_window)))
             self.residual_convs.append(
-                layers.Conv2D(filters=residual_channels, kernel_constraint=SpectralNorm(), kernel_size=(1, 1)))
+                layers.Conv2D(filters=residual_channels, kernel_size=(1, 1)))
 
         self.skipE = layers.Conv2D(filters=skip_channels, kernel_size=(1, remain_window))
         self.end_conv_0 = layers.Conv2D(filters=end_channels, kernel_size=(1, 1))
@@ -76,7 +73,8 @@ class SGTANN(keras.Model):
             self.skip_atten1 = Attention()
             self.skip_atten2 = Attention()
             if use_relu:
-                self.dense0 = layers.Dense(node_num, activation='relu'),
+                self.dense0 = Sequential([layers.Dense(node_num),
+                                         layers.Activation('relu')])
             else:
                 self.dense0 = layers.Dense(node_num)
 
