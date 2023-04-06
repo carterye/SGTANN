@@ -1,2 +1,2 @@
 # SGTANN
-This is a implementation of SGTANN
+This is an implementation of SGTANN
