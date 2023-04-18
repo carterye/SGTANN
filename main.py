@@ -38,14 +38,14 @@ def args_parser():
     parser.add_argument('--glu_num', type=int, default=5, help='glu_num')
     parser.add_argument('--p', type=int, default=7, help='segment num')
     parser.add_argument('--runs', type=int, default=8, help='runs')
-    parser.add_argument('--epochs', type=int, default=50, help='epochs')
+    parser.add_argument('--epochs', type=int, default=40, help='epochs')
     parser.add_argument('--use_gcn', type=bool, default=True, help='use gcn')
     parser.add_argument('--use_glu', type=bool, default=True, help='use glu')
     parser.add_argument('--use_te', type=bool, default=True, help='use te')
     parser.add_argument('--use_relu', type=bool, default=False, help='runs')
 
     ''' data '''
-    parser.add_argument('--dataset_name', type=str, default='solar-energy', help='dataset name')
+    parser.add_argument('--dataset_name', type=str, default='nature-gas1', help='dataset name')
     parser.add_argument('--filter_num', type=int, default=24, help='runs')
     parser.add_argument('--batch_size', type=int, default=64, help='batch size')
 
