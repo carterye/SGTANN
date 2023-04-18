@@ -42,8 +42,7 @@ def args_parser():
     parser.add_argument('--use_gcn', type=bool, default=True, help='use gcn')
     parser.add_argument('--use_glu', type=bool, default=True, help='use glu')
     parser.add_argument('--use_te', type=bool, default=True, help='use te')
-    # parser.add_argument('--use_relu', type=bool, default=False, help='runs')
-    parser.add_argument('--use_relu', type=bool, default=True, help='runs')
+    parser.add_argument('--use_relu', type=bool, default=False, help='runs')
 
     ''' data '''
     # parser.add_argument('--dataset_name', type=str, default='solar-energy', help='dataset name')
