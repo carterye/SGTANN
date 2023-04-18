@@ -5,14 +5,14 @@ sys.path.extend(['/home/ycy/SGTANN/'])
 
 import numpy as np
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import tensorflow as tf
 tf.config.run_functions_eagerly(True)
 gpus = tf.config.experimental.list_physical_devices(device_type='GPU')
-tf.config.experimental.set_virtual_device_configuration(gpus[0], [
-    tf.config.experimental.VirtualDeviceConfiguration(memory_limit=8000)])
+# tf.config.experimental.set_virtual_device_configuration(gpus[0], [
+#     tf.config.experimental.VirtualDeviceConfiguration(memory_limit=8000)])
 
 from util.p_utils import train, test, get_dataset
 from project_utils import get_project_path
