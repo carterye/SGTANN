@@ -37,7 +37,7 @@ def args_parser():
     parser.add_argument('--gcn_num', type=int, default=2, help='gcn_num')
     parser.add_argument('--glu_num', type=int, default=5, help='glu_num')
     parser.add_argument('--p', type=int, default=7, help='segment num')
-    parser.add_argument('--runs', type=int, default=1, help='runs')
+    parser.add_argument('--runs', type=int, default=8, help='runs')
     parser.add_argument('--epochs', type=int, default=50, help='epochs')
     parser.add_argument('--use_gcn', type=bool, default=True, help='use gcn')
     parser.add_argument('--use_glu', type=bool, default=True, help='use glu')
