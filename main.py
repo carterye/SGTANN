@@ -45,17 +45,10 @@ def args_parser():
     parser.add_argument('--use_relu', type=bool, default=False, help='runs')
 
     ''' data '''
-    # parser.add_argument('--dataset_name', type=str, default='solar-energy', help='dataset name')
-    # parser.add_argument('--filter_num', type=int, default=24, help='runs')
-    # parser.add_argument('--batch_size', type=int, default=64, help='batch size')
-
-    parser.add_argument('--dataset_name', type=str, default='electricity', help='dataset name')
+    parser.add_argument('--dataset_name', type=str, default='solar-energy', help='dataset name')
     parser.add_argument('--filter_num', type=int, default=24, help='runs')
-    parser.add_argument('--batch_size', type=int, default=16, help='batch size')
+    parser.add_argument('--batch_size', type=int, default=64, help='batch size')
 
-    # parser.add_argument('--dataset_name', type=str, default='exchange-rate', help='dataset name')
-    # parser.add_argument('--filter_num', type=int, default=16, help='runs')
-    # parser.add_argument('--batch_size', type=int, default=4, help='batch size')
     args = parser.parse_args()
     return args
 
